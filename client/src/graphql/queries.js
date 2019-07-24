@@ -6,6 +6,17 @@ export default {
       products {
         _id
         name
+        description
+      }
+    }
+  `,
+  FETCH_PRODUCT: gql`
+    query FetchProduct($id: ID!) {
+      product(_id: $id) {
+        _id,
+        name,
+        description,
+        weight
       }
     }
   `,
