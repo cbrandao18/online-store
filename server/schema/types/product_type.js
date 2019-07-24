@@ -21,18 +21,10 @@ const ProductType = new GraphQLObjectType({
                     .then(category => category)
                     .catch(err => console.log(err))
             }
-        }
+        },
+        cost: { type: GraphQLInt }
         
     })
 });
 
 module.exports = ProductType;
-
-// abode: {
-//   type: AbodeType,
-//     resolve(parentValue) {
-//     return Abode.findById(parentValue.abode)
-//       .then(abode => abode)
-//       .catch(err => console.log(err))
-//   }
-// }
