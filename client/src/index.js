@@ -26,7 +26,6 @@ try {
   persistCache({
     cache,
     storage: window.localStorage,
-    debug: true
   });
 } catch (error) {
   console.error('Error restoring Apollo cache', error);
