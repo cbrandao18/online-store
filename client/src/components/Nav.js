@@ -15,22 +15,26 @@ class Nav extends Component {
             {({ data }) => {
               if (data.isLoggedIn) {
                 return (
-                  <button
-                    onClick={e => {
-                      e.preventDefault();
-                      localStorage.removeItem("auth-token");
-                      client.writeData({ data: { isLoggedIn: false } });
-                      this.props.history.push("/");
-                    }}
-                  >
-                    Logout
-                  </button>
+                  <div>
+                    <button
+                      onClick={e => {
+                        e.preventDefault();
+                        localStorage.removeItem("auth-token");
+                        client.writeData({ data: { isLoggedIn: false } });
+                        this.props.history.push("/");
+                      }}
+                    >
+                      Logout
+                    </button>
+                    <Link to="/cart">Cart</Link>
+                  </div>
                 );
               } else {
                 return (
                   <div>
                     <Link to="/login">Login</Link>
                     <Link to="/register">Sign Up</Link>
+                    
                   </div>
                 );
               }

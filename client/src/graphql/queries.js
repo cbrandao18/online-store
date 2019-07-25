@@ -16,13 +16,22 @@ export default {
         _id,
         name,
         description,
-        weight
+        weight,
+        cost
       }
     }
   `,
   IS_LOGGED_IN: gql`
     query IsUserLoggedIn {
       isLoggedIn @client
+    }
+  `,
+  FETCH_CART_ITEMS: gql`
+    query FetchCartItems {
+      cart @client {
+        cost
+        _id
+      }
     }
   `
 }
