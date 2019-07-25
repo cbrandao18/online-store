@@ -10,7 +10,8 @@ class Login extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      message: ""
     };
   }
 
@@ -30,6 +31,7 @@ class Login extends Component {
     return (
       <Mutation
         mutation={LOGIN_USER}
+        onError={err => this.setState({ message: err.message })}
         onCompleted={data => {
           const { token } = data.login;
           localStorage.setItem("auth-token", token);
@@ -63,6 +65,7 @@ class Login extends Component {
               />
               <button type="submit">Log In</button>
             </form>
+            <p>{this.state.message}</p>
           </div>
         )}
       </Mutation>

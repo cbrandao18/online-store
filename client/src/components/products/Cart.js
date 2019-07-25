@@ -17,7 +17,7 @@ class Cart extends React.Component {
           if (data.cart){
             cartItems = data.cart.map(item => {
               totalCost += item.cost;
-              return (<CartItem _id={item._id} key={item._id}/>)
+              return (<CartItem _id={item._id} key={item._id} quantity={1} />)
             });
           }
           return (

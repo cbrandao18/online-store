@@ -30,6 +30,7 @@ export default {
     query FetchCartItems {
       cart @client {
         cost
+        quantity
         _id
       }
     }

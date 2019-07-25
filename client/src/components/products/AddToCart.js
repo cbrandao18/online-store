@@ -13,14 +13,17 @@ class AddToCart extends React.Component {
             {({ loading, error, data }) => {
               if (loading) return "Loading...";
               if (error) return `Error! ${error.message}`;
+
               let cart = data.cart;
               let productInCart = false;
 
-                for(let i=0; i< cart.length; i++){
+              if (Object.keys(data).length > 0 ){
+                for(let i=0; i < cart.length; i++){
                   if (cart[i]._id === this.props._id){
                     productInCart = true;
                   }
                 }
+              }
 
               let button;
               if (productInCart) {
@@ -42,7 +45,7 @@ class AddToCart extends React.Component {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      cart.push({ _id: this.props._id, cost: this.props.cost, __typename: "Name" })
+                      cart.push({ _id: this.props._id, cost: this.props.cost, quantity: this.props.quantity, __typename: "Name" })
                       client.writeData({ data: { cart: cart } })
                     }}
                   >

@@ -15,7 +15,7 @@ const ProductDetail = (props) => {
             <p>{data.product.name}</p>
             <p>{data.product.description}</p>
             <p>{data.product.weight}</p>
-            <AddToCart _id={data.product._id} cost={data.product.cost}/>
+            <AddToCart _id={data.product._id} cost={data.product.cost} quantity={1}/>
           </div>
         );
       }}

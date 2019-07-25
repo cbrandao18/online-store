@@ -11,7 +11,8 @@ class Register extends Component {
     this.state = {
       name: "",
       email: "",
-      password: ""
+      password: "",
+      message: ""
     };
   }
 
@@ -31,6 +32,7 @@ class Register extends Component {
     return (
       <Mutation
         mutation={REGISTER_USER}
+        onError={err => this.setState({ message: err.message })}
         onCompleted={data => {
           const { token } = data.register;
           localStorage.setItem("auth-token", token);
@@ -70,6 +72,7 @@ class Register extends Component {
               />
               <button type="submit">Sign Up</button>
             </form>
+            <p>{this.state.message}</p>
           </div>
         )}
       </Mutation>
